@@ -283,5 +283,35 @@
     <script>
       svgturkiyeharitasi();
     </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const iller = document.querySelectorAll("#svg-turkiye-haritasi path");
+
+    iller.forEach(function (il) {
+
+        il.style.cursor = "pointer";
+
+        il.addEventListener("click", function () {
+
+            const ilGrubu = il.parentElement;
+
+            const ilAdi = ilGrubu.getAttribute("data-iladi");
+            const plaka = ilGrubu.getAttribute("data-plakakodu");
+
+            if (ilAdi) {
+                alert(
+                    "📍 " + ilAdi +
+                    "\nPlaka kodu: " + plaka +
+                    "\n\nBu il için fosil kayıtlarını birazdan ekleyeceğiz."
+                );
+            }
+
+        });
+
+    });
+
+});
+</script>
   </body>
 </html>
