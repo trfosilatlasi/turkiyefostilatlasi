@@ -1,65 +1,125 @@
+/* Genel sayfa ayarları */
+
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f1ea;
-    color: #2f302c;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4efe6;
+    color: #2f3e2f;
+    line-height: 1.6;
 }
 
+
+/* Üst başlık alanı */
+
 header {
-    background-color: #26382f;
+    background: linear-gradient(135deg, #243b2a, #3f6045);
     color: white;
     text-align: center;
     padding: 45px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 header h1 {
-    margin: 0;
     font-size: 42px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 header p {
-    margin-top: 12px;
     font-size: 18px;
+    color: #dfe9df;
 }
+
+
+/* Ana içerik */
 
 main {
     max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
+
+
+/* Harita bölümü */
 
 .map-section {
     background-color: white;
-    border-radius: 16px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
 }
 
 .map-section h2 {
-    margin-top: 0;
-    font-size: 28px;
+    text-align: center;
+    font-size: 30px;
+    color: #304d36;
+    margin-bottom: 25px;
 }
 
-.map-placeholder {
-    height: 500px;
+
+/* Harita alanı */
+
+#map-container {
+    width: 100%;
+    min-height: 400px;
+    background-color: #e8eee4;
+    border: 2px solid #c5d2c1;
+    border-radius: 15px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    border: 2px dashed #9b9b8d;
-    border-radius: 12px;
-    margin-top: 25px;
-    color: #777;
-    font-size: 20px;
+    align-items: center;
+    overflow: hidden;
 }
+
+
+/* Türkiye haritası */
+
+#turkey-map {
+    width: 90%;
+    max-width: 850px;
+    height: auto;
+}
+
+.turkey-shape {
+    fill: #b7c9a8;
+    stroke: #536b4f;
+    stroke-width: 3;
+    transition: 0.3s;
+}
+
+.turkey-shape:hover {
+    fill: #9fb88f;
+}
+
+
+/* Harita açıklaması */
+
+.map-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f1f5ee;
+    border-left: 5px solid #607d5b;
+    border-radius: 8px;
+}
+
+.map-info p {
+    color: #536153;
+    font-size: 15px;
+}
+
+
+/* Alt bilgi */
 
 footer {
+    margin-top: 50px;
+    background-color: #243b2a;
+    color: #dfe9df;
     text-align: center;
-    padding: 30px;
-    color: #777;
+    padding: 25px;
     font-size: 14px;
 }
