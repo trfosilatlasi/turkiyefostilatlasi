@@ -429,7 +429,104 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-        alert(mesaj);
+       const eskiKart = document.querySelector("#fosil-bilgi-karti");
+
+if (eskiKart) {
+    eskiKart.remove();
+}
+
+const kart = document.createElement("div");
+
+kart.id = "fosil-bilgi-karti";
+
+kart.style.position = "fixed";
+kart.style.top = "50%";
+kart.style.left = "50%";
+kart.style.transform = "translate(-50%, -50%)";
+kart.style.width = "min(700px, 90vw)";
+kart.style.maxHeight = "80vh";
+kart.style.overflowY = "auto";
+kart.style.background = "#fffdf7";
+kart.style.padding = "30px";
+kart.style.borderRadius = "18px";
+kart.style.boxShadow = "0 15px 50px rgba(0,0,0,0.35)";
+kart.style.zIndex = "99999";
+kart.style.fontFamily = "Arial, sans-serif";
+kart.style.color = "#2f3e2f";
+
+let kartHTML =
+    "<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;'>" +
+    "<h2 style='margin:0;color:#304d36;'>🦴 " + ilVerisi.il + "</h2>" +
+    "<button id='karti-kapat' style='border:none;background:#304d36;color:white;border-radius:50%;width:35px;height:35px;font-size:20px;cursor:pointer;'>×</button>" +
+    "</div>";
+
+ilVerisi.kayitlar.forEach(function (kayit, index) {
+
+    kartHTML +=
+        "<div style='border-top:1px solid #d8dfd3;padding-top:20px;margin-top:20px;'>" +
+
+        "<h3 style='color:#4d704f;margin-bottom:12px;'>" +
+        "📍 " + kayit.yer +
+        "</h3>" +
+
+        "<p><strong>⏳ Jeolojik dönem:</strong> " +
+        kayit.donem +
+        "</p>" +
+
+        "<p><strong>🕰️ Yaş:</strong> " +
+        kayit.yas +
+        "</p>" +
+
+        "<p><strong>🔬 Fosil grubu:</strong> " +
+        kayit.grup +
+        "</p>" +
+
+        "<p><strong>🦴 Fosiller:</strong> " +
+        kayit.fosiller.join(", ") +
+        "</p>" +
+
+        "<p style='margin-top:12px;'>" +
+        kayit.aciklama +
+        "</p>" +
+
+        "<div style='margin-top:18px;padding:15px;background:#eef3eb;border-radius:10px;'>" +
+
+        "<strong>📚 Kaynak</strong><br>" +
+
+        kayit.kaynak.yazar +
+        " (" +
+        kayit.kaynak.yil +
+        "). " +
+        kayit.kaynak.kurum +
+        ", " +
+        kayit.kaynak.cilt +
+        "(" +
+        kayit.kaynak.sayi +
+        "), " +
+        kayit.kaynak.sayfalar +
+
+        "<br><br>" +
+
+        "<a href='" +
+        kayit.kaynak.url +
+        "' target='_blank' rel='noopener noreferrer' " +
+        "style='color:#365f3d;font-weight:bold;'>" +
+        "🔗 Makaleyi görüntüle" +
+        "</a>" +
+
+        "</div>" +
+
+        "</div>";
+
+});
+
+kart.innerHTML = kartHTML;
+
+document.body.appendChild(kart);
+
+document.querySelector("#karti-kapat").addEventListener("click", function () {
+    kart.remove();
+});
 
     });
 
