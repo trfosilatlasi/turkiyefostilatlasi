@@ -368,57 +368,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
 };
 
-    const iller = document.querySelectorAll("#svg-turkiye-haritasi path");
+ const iller = document.querySelectorAll("#svg-turkiye-haritasi path");
 
-    iller.forEach(function (il) {
+iller.forEach(function (il) {
 
-        il.style.cursor = "pointer";
+    il.style.cursor = "pointer";
 
-     il.addEventListener("click", function () {
+    il.addEventListener("click", function () {
 
-    const ilGrubu = il.parentElement;
+        const ilGrubu = il.parentElement;
 
-    const ilAdi = ilGrubu.getAttribute("data-iladi");
-    const plaka = ilGrubu.getAttribute("data-plakakodu");
+        const ilAdi = ilGrubu.getAttribute("data-iladi");
+        const plaka = ilGrubu.getAttribute("data-plakakodu");
 
-    const ilVerisi = fosilKayitlari[plaka];
+        const ilVerisi = fosilKayitlari[plaka];
 
-    if (!ilVerisi) {
-        alert(
-            "📍 " + ilAdi +
-            "\n\nBu il için henüz doğrulanmış fosil kaydı eklenmedi."
-        );
-        return;
-    }
+        if (!ilVerisi) {
+            alert(
+                "📍 " + ilAdi +
+                "\n\nBu il için henüz doğrulanmış fosil kaydı eklenmedi."
+            );
+            return;
+        }
 
-    let mesaj = "📍 " + ilVerisi.il + "\n\n";
+        let mesaj = "📍 " + ilVerisi.il + "\n\n";
 
-    ilVerisi.kayitlar.forEach(function (kayit, index) {
+        ilVerisi.kayitlar.forEach(function (kayit, index) {
 
-        mesaj +=
-            "🦴 Kayıt " + (index + 1) + "\n" +
-            "Yer: " + kayit.yer + "\n" +
-            "Jeolojik dönem: " + kayit.donem + "\n" +
-            "Yaş: " + kayit.yas + "\n" +
-            "Fosil grubu: " + kayit.grup + "\n" +
-            "Fosiller: " + kayit.fosiller.join(", ") + "\n\n" +
-            kayit.aciklama + "\n\n" +
-            "📚 Kaynak:\n" +
-            kayit.kaynak.yazar + " (" +
-            kayit.kaynak.yil + "). " +
-            kayit.kaynak.kurum + ", " +
-            kayit.kaynak.cilt + "(" +
-            kayit.kaynak.sayi + "), " +
-            kayit.kaynak.sayfalar + "\n\n";
+            mesaj +=
+                "🦴 Kayıt " + (index + 1) + "\n" +
+                "Yer: " + kayit.yer + "\n" +
+                "Jeolojik dönem: " + kayit.donem + "\n" +
+                "Yaş: " + kayit.yas + "\n" +
+                "Fosil grubu: " + kayit.grup + "\n" +
+                "Fosiller: " + kayit.fosiller.join(", ") + "\n\n" +
+                kayit.aciklama + "\n\n" +
+                "📚 Kaynak:\n" +
+                kayit.kaynak.yazar + " (" +
+                kayit.kaynak.yil + "). " +
+                kayit.kaynak.kurum + ", " +
+                kayit.kaynak.cilt + "(" +
+                kayit.kaynak.sayi + "), " +
+                kayit.kaynak.sayfalar + "\n\n";
 
-    });
+        });
 
-    alert(mesaj);
-
-});
-    alert(mesaj);
-
-});
+        alert(mesaj);
 
     });
 
