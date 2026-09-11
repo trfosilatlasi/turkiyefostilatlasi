@@ -509,7 +509,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-       const eskiKart = document.querySelector("#fosil-bilgi-karti");
+    const eskiKart = document.querySelector("#fosil-bilgi-karti");
 
 if (eskiKart) {
     eskiKart.remove();
@@ -523,75 +523,133 @@ kart.style.position = "fixed";
 kart.style.top = "50%";
 kart.style.left = "50%";
 kart.style.transform = "translate(-50%, -50%)";
-kart.style.width = "min(700px, 90vw)";
-kart.style.maxHeight = "80vh";
+kart.style.width = "min(760px, 92vw)";
+kart.style.maxHeight = "85vh";
 kart.style.overflowY = "auto";
 kart.style.background = "#fffdf7";
 kart.style.padding = "30px";
-kart.style.borderRadius = "18px";
-kart.style.boxShadow = "0 15px 50px rgba(0,0,0,0.35)";
+kart.style.borderRadius = "20px";
+kart.style.boxShadow = "0 20px 60px rgba(0,0,0,0.35)";
 kart.style.zIndex = "99999";
 kart.style.fontFamily = "Arial, sans-serif";
 kart.style.color = "#2f3e2f";
 
 let kartHTML =
-    "<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;'>" +
-    "<h2 style='margin:0;color:#304d36;'>🦴 " + ilVerisi.il + "</h2>" +
-    "<button id='karti-kapat' style='border:none;background:#304d36;color:white;border-radius:50%;width:35px;height:35px;font-size:20px;cursor:pointer;'>×</button>" +
+    "<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;'>" +
+
+    "<div>" +
+    "<h2 style='margin:0;color:#304d36;font-size:30px;'>🦴 " +
+    ilVerisi.il +
+    "</h2>" +
+
+    "<p style='margin:5px 0 0;color:#71806f;font-size:14px;'>" +
+    ilVerisi.kayitlar.length +
+    " fosil kaydı" +
+    "</p>" +
+
+    "</div>" +
+
+    "<button id='karti-kapat' " +
+    "style='border:none;background:#304d36;color:white;border-radius:50%;width:38px;height:38px;font-size:23px;cursor:pointer;'>" +
+    "×" +
+    "</button>" +
+
     "</div>";
+
 
 ilVerisi.kayitlar.forEach(function (kayit, index) {
 
-    kartHTML +=
-        "<div style='border-top:1px solid #d8dfd3;padding-top:20px;margin-top:20px;'>" +
+    let durumHTML = "";
 
-        "<h3 style='color:#4d704f;margin-bottom:12px;'>" +
+    if (kayit.durum) {
+
+        durumHTML =
+            "<div style='display:inline-block;background:#f3df9b;color:#6b5718;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:bold;margin-bottom:15px;'>" +
+            "⚠️ " + kayit.durum +
+            "</div>";
+
+    }
+
+
+    kartHTML +=
+
+        "<div style='border:1px solid #d8dfd3;border-radius:15px;padding:22px;margin-top:20px;background:#ffffff;box-shadow:0 3px 12px rgba(0,0,0,0.05);'>" +
+
+        "<div style='color:#71806f;font-size:13px;font-weight:bold;margin-bottom:6px;'>" +
+        "KAYIT " + (index + 1) +
+        "</div>" +
+
+        durumHTML +
+
+        "<h3 style='color:#365f3d;font-size:21px;margin:5px 0 18px;'>" +
         "📍 " + kayit.yer +
         "</h3>" +
 
-        "<p><strong>⏳ Jeolojik dönem:</strong> " +
+        "<div style='background:#f1f5ee;padding:14px;border-radius:10px;margin-bottom:15px;'>" +
+
+        "<p style='margin:5px 0;'><strong>⏳ Jeolojik dönem:</strong> " +
         kayit.donem +
         "</p>" +
 
-        "<p><strong>🕰️ Yaş:</strong> " +
+        "<p style='margin:5px 0;'><strong>🕰️ Yaş:</strong> " +
         kayit.yas +
         "</p>" +
 
-        "<p><strong>🔬 Fosil grubu:</strong> " +
+        "<p style='margin:5px 0;'><strong>🔬 Fosil grubu:</strong> " +
         kayit.grup +
         "</p>" +
 
-        "<p><strong>🦴 Fosiller:</strong> " +
+        "</div>" +
+
+        "<p style='margin:15px 0;'>" +
+
+        "<strong>🦴 Fosiller</strong><br>" +
+
         kayit.fosiller.join(", ") +
+
         "</p>" +
 
-        "<p style='margin-top:12px;'>" +
+        "<p style='margin-top:15px;line-height:1.7;'>" +
+
         kayit.aciklama +
+
         "</p>" +
 
-        "<div style='margin-top:18px;padding:15px;background:#eef3eb;border-radius:10px;'>" +
 
-        "<strong>📚 Kaynak</strong><br>" +
+        "<div style='margin-top:20px;padding:16px;background:#eef3eb;border-radius:12px;border-left:4px solid #607d5b;'>" +
+
+        "<strong style='color:#304d36;'>📚 Kaynak</strong><br><br>" +
 
         kayit.kaynak.yazar +
+
         " (" +
+
         kayit.kaynak.yil +
+
         "). " +
+
         kayit.kaynak.kurum +
-        ", " +
-        kayit.kaynak.cilt +
-        "(" +
-        kayit.kaynak.sayi +
-        "), " +
-        kayit.kaynak.sayfalar +
+
+        (kayit.kaynak.cilt ? ", " + kayit.kaynak.cilt : "") +
+
+        (kayit.kaynak.sayi ? "(" + kayit.kaynak.sayi + ")" : "") +
+
+        (kayit.kaynak.sayfalar ? ", " + kayit.kaynak.sayfalar : "") +
+
+        (kayit.kaynak.tarih ? "<br>" + kayit.kaynak.tarih : "") +
 
         "<br><br>" +
 
         "<a href='" +
+
         kayit.kaynak.url +
+
         "' target='_blank' rel='noopener noreferrer' " +
-        "style='color:#365f3d;font-weight:bold;'>" +
-        "🔗 Makaleyi görüntüle" +
+
+        "style='display:inline-block;color:white;background:#365f3d;padding:9px 14px;border-radius:8px;text-decoration:none;font-weight:bold;'>" +
+
+        "🔗 Kaynağı görüntüle" +
+
         "</a>" +
 
         "</div>" +
@@ -600,14 +658,17 @@ ilVerisi.kayitlar.forEach(function (kayit, index) {
 
 });
 
+
 kart.innerHTML = kartHTML;
 
 document.body.appendChild(kart);
 
-document.querySelector("#karti-kapat").addEventListener("click", function () {
-    kart.remove();
-});
 
+document.querySelector("#karti-kapat").addEventListener("click", function () {
+
+    kart.remove();
+
+});
     });
 
 });
