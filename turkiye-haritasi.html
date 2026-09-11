@@ -384,7 +384,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const ilVerisi = fosilKayitlari[plaka];
 
     if (!ilVerisi) {
-        alert("📍 " + ilAdi + "\n\nBu il için henüz fosil kaydı eklenmedi.");
+        alert(
+            "📍 " + ilAdi +
+            "\n\nBu il için henüz doğrulanmış fosil kaydı eklenmedi."
+        );
         return;
     }
 
@@ -395,15 +398,24 @@ document.addEventListener("DOMContentLoaded", function () {
         mesaj +=
             "🦴 Kayıt " + (index + 1) + "\n" +
             "Yer: " + kayit.yer + "\n" +
-            "Dönem: " + kayit.donem + "\n" +
+            "Jeolojik dönem: " + kayit.donem + "\n" +
             "Yaş: " + kayit.yas + "\n" +
-            "Fosiller: " + kayit.fosiller.join(", ") + "\n" +
-            "Grup: " + kayit.grup + "\n" +
-            "Açıklama: " + kayit.aciklama + "\n" +
-            "Kaynak: " + kayit.kaynak + "\n\n";
+            "Fosil grubu: " + kayit.grup + "\n" +
+            "Fosiller: " + kayit.fosiller.join(", ") + "\n\n" +
+            kayit.aciklama + "\n\n" +
+            "📚 Kaynak:\n" +
+            kayit.kaynak.yazar + " (" +
+            kayit.kaynak.yil + "). " +
+            kayit.kaynak.kurum + ", " +
+            kayit.kaynak.cilt + "(" +
+            kayit.kaynak.sayi + "), " +
+            kayit.kaynak.sayfalar + "\n\n";
 
     });
 
+    alert(mesaj);
+
+});
     alert(mesaj);
 
 });
