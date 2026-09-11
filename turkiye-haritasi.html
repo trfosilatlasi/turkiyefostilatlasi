@@ -285,113 +285,128 @@
     </script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const fosilKayitlari = {
 
-    "01": {
+    const fosilKayitlari = {
 
-        il: "Adana",
+        "01": {
 
-        kayitlar: [
+            il: "Adana",
 
-            {
-                yer: "Fadıl – Salbaş",
-                donem: "Geç Miyosen",
-                yas: "Yaklaşık 11,6–5,3 milyon yıl önce",
+            kayitlar: [
 
-                fosiller: [
-                    "Cyprideis seminulum",
-                    "Cyprideis anatolica",
-                    "Cyprideis torosa",
-                    "Cyprideis sohni",
-                    "Cyprideis pannonica",
-                    "Cytherella glypta",
-                    "Miocyprideis sarmatica",
-                    "Cyamocytheridea meniscus",
-                    "Xestoleberis communis",
-                    "Xestoleberis margaritae",
-                    "Chara sp.",
-                    "Balık otoliti",
-                    "Pirenella picta",
-                    "Terebralia bidentata"
-                ],
+                {
+                    yer: "Fadıl – Salbaş",
+                    donem: "Geç Miyosen",
+                    yas: "Yaklaşık 11,6–5,3 milyon yıl önce",
 
-                grup: "Ostrakodlar, gastropodlar, algler, balıklar ve foraminiferler",
+                    fosiller: [
+                        "Cyprideis seminulum",
+                        "Cyprideis anatolica",
+                        "Cyprideis torosa",
+                        "Cyprideis sohni",
+                        "Cyprideis pannonica",
+                        "Cytherella glypta",
+                        "Miocyprideis sarmatica",
+                        "Cyamocytheridea meniscus",
+                        "Xestoleberis communis",
+                        "Xestoleberis margaritae",
+                        "Chara sp.",
+                        "Balık otoliti",
+                        "Pirenella picta",
+                        "Terebralia bidentata"
+                    ],
 
-                aciklama:
-                    "Fadıl ve Salbaş yöresindeki Geç Miyosen yaşlı volkano-sedimanter istiflerde zengin bir mikrofosil topluluğu tanımlanmıştır. Fosiller lagün ve sığ denizel ortamların izlerini taşımaktadır.",
+                    grup: "Ostrakodlar, gastropodlar, algler ve balıklar",
 
-               kaynak: {
-    kurum: "Adıyaman Üniversitesi Mühendislik Bilimleri Dergisi",
-    yazar: "Şafak, Ü., Akıncı, A.C. & Sonsun, H.",
-    yil: "2021",
-    cilt: "8",
-    sayi: "14",
-    sayfalar: "179–195",
-    url: "https://dergipark.org.tr/tr/pub/adyumbd/article/901287"
-}
-            },
+                    aciklama:
+                        "Fadıl ve Salbaş yöresindeki Geç Miyosen yaşlı volkano-sedimanter istiflerde zengin bir mikrofosil topluluğu tanımlanmıştır.",
+
+                    kaynak: {
+                        kurum: "Adıyaman Üniversitesi Mühendislik Bilimleri Dergisi",
+                        yazar: "Şafak, Ü., Akıncı, A.C. & Sonsun, H.",
+                        yil: "2021",
+                        cilt: "8",
+                        sayi: "14",
+                        sayfalar: "179–195",
+                        url: "https://dergipark.org.tr/tr/pub/adyumbd/article/901287"
+                    }
+                },
+
+                {
+                    yer: "Karaisalı Formasyonu",
+                    donem: "Erken Miyosen",
+                    yas: "Akitaniyen–Burdigaliyen",
+
+                    fosiller: [
+                        "Mercanlar",
+                        "Gastropodlar",
+                        "Lamellibranşlar",
+                        "Ekinidler",
+                        "Kırmızı algler",
+                        "Foraminiferler"
+                    ],
+
+                    grup: "Resif canlıları ve mikrofosiller",
+
+                    aciklama:
+                        "Karaisalı Formasyonu'nun resifal kireçtaşlarında mercan, gastropod, lamellibranş, ekinid, kırmızı alg ve foraminiferlerden oluşan zengin bir fosil topluluğu tanımlanmıştır.",
+
+                    kaynak: {
+                        kurum: "Türkiye Jeoloji Bülteni",
+                        yazar: "Taraf, F., Eren, M. & Gürbüz, K.",
+                        yil: "2013",
+                        cilt: "56",
+                        sayi: "3",
+                        sayfalar: "173–188",
+                        url: "https://dergipark.org.tr/tr/pub/tjb/article/298765"
+                    }
+                }
+
+            ]
+
+        }
+
+    };
 
 
-            {
-                yer: "Karaisalı Formasyonu",
-                donem: "Erken Miyosen",
-                yas: "Akitaniyen–Burdigaliyen",
+    const harita = document.querySelector("#svg-turkiye-haritasi");
 
-                fosiller: [
-                    "Mercanlar",
-                    "Gastropodlar",
-                    "Lamellibranşlar",
-                    "Ekinidler",
-                    "Kırmızı algler",
-                    "Foraminiferler"
-                ],
-
-                grup: "Resif canlıları ve mikrofosiller",
-
-                aciklama:
-                    "Karaisalı Formasyonu'nun resifal kireçtaşlarında mercan, gastropod, lamellibranş, ekinid, kırmızı alg ve foraminiferlerden oluşan zengin bir fosil topluluğu tanımlanmıştır.",
-
-               kaynak: {
-    kurum: "Türkiye Jeoloji Bülteni",
-    yazar: "Taraf, F., Eren, M. & Gürbüz, K.",
-    yil: "2013",
-    cilt: "56",
-    sayi: "3",
-    sayfalar: "173–188",
-    url: "https://dergipark.org.tr/tr/pub/tjb/article/298765"
-}
-            }
-
-        ]
-
+    if (!harita) {
+        console.log("Türkiye haritası bulunamadı.");
+        return;
     }
 
-};
 
- const iller = document.querySelectorAll("#svg-turkiye-haritasi path");
+    harita.addEventListener("click", function (event) {
 
-iller.forEach(function (il) {
+        const tiklanan = event.target;
 
-    il.style.cursor = "pointer";
+        const ilGrubu = tiklanan.closest("g[data-plakakodu]");
 
-    il.addEventListener("click", function () {
+        if (!ilGrubu) {
+            return;
+        }
 
-        const ilGrubu = il.parentElement;
 
         const ilAdi = ilGrubu.getAttribute("data-iladi");
         const plaka = ilGrubu.getAttribute("data-plakakodu");
 
         const ilVerisi = fosilKayitlari[plaka];
 
+
         if (!ilVerisi) {
+
             alert(
                 "📍 " + ilAdi +
                 "\n\nBu il için henüz doğrulanmış fosil kaydı eklenmedi."
             );
+
             return;
         }
 
+
         let mesaj = "📍 " + ilVerisi.il + "\n\n";
+
 
         ilVerisi.kayitlar.forEach(function (kayit, index) {
 
@@ -412,6 +427,7 @@ iller.forEach(function (il) {
                 kayit.kaynak.sayfalar + "\n\n";
 
         });
+
 
         alert(mesaj);
 
