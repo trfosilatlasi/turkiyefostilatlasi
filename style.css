@@ -1,4 +1,4 @@
-/* Genel sayfa ayarları */
+/* GENEL AYARLAR */
 
 * {
     box-sizing: border-box;
@@ -10,42 +10,67 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4efe6;
     color: #2f3e2f;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 
-/* Üst başlık alanı */
+/* ÜST BAŞLIK */
 
 header {
-    background: linear-gradient(135deg, #243b2a, #3f6045);
+    background: linear-gradient(135deg, #203b29, #4d704f);
     color: white;
     text-align: center;
-    padding: 45px 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 55px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
 }
 
 header h1 {
-    font-size: 42px;
+    font-size: 46px;
     margin-bottom: 10px;
     letter-spacing: 1px;
 }
 
 header p {
-    font-size: 18px;
-    color: #dfe9df;
+    font-size: 19px;
+    color: #e4ece2;
 }
 
 
-/* Ana içerik */
+/* ANA ALAN */
 
 main {
     max-width: 1100px;
-    margin: 40px auto;
+    margin: 45px auto;
     padding: 0 20px;
 }
 
 
-/* Harita bölümü */
+/* GİRİŞ BÖLÜMÜ */
+
+.intro {
+    background-color: white;
+    padding: 35px 40px;
+    border-radius: 18px;
+    margin-bottom: 35px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.intro h2 {
+    color: #304d36;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    max-width: 800px;
+    margin: 10px auto;
+    color: #596458;
+    font-size: 16px;
+}
+
+
+/* HARİTA BÖLÜMÜ */
 
 .map-section {
     background-color: white;
@@ -62,7 +87,7 @@ main {
 }
 
 
-/* Harita alanı */
+/* HARİTA ALANI */
 
 #map-container {
     width: 100%;
@@ -75,9 +100,6 @@ main {
     align-items: center;
     overflow: hidden;
 }
-
-
-/* Türkiye haritası */
 
 #turkey-map {
     width: 90%;
@@ -97,11 +119,11 @@ main {
 }
 
 
-/* Harita açıklaması */
+/* HARİTA AÇIKLAMASI */
 
 .map-info {
     margin-top: 20px;
-    padding: 15px;
+    padding: 15px 20px;
     background-color: #f1f5ee;
     border-left: 5px solid #607d5b;
     border-radius: 8px;
@@ -113,13 +135,86 @@ main {
 }
 
 
-/* Alt bilgi */
+/* BİLGİ KARTLARI */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 35px;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 30px 25px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #607d5b;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card h3 {
+    color: #304d36;
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #626b62;
+    font-size: 15px;
+}
+
+
+/* ALT BİLGİ */
 
 footer {
-    margin-top: 50px;
-    background-color: #243b2a;
+    margin-top: 55px;
+    background-color: #203b29;
     color: #dfe9df;
     text-align: center;
-    padding: 25px;
-    font-size: 14px;
+    padding: 28px 20px;
+}
+
+footer p:first-child {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+footer p:last-child {
+    font-size: 13px;
+    color: #bfcdbd;
+}
+
+
+/* TELEFON VE KÜÇÜK EKRANLAR */
+
+@media (max-width: 750px) {
+
+    header h1 {
+        font-size: 34px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    .intro,
+    .map-section {
+        padding: 25px 20px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    #map-container {
+        min-height: 300px;
+    }
 }
