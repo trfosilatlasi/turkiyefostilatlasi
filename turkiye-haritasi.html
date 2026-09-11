@@ -285,6 +285,74 @@
     </script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  const fosilKayitlari = {
+
+    "01": {
+
+        il: "Adana",
+
+        kayitlar: [
+
+            {
+                yer: "Fadıl – Salbaş",
+                donem: "Geç Miyosen",
+                yas: "Yaklaşık 11,6–5,3 milyon yıl önce",
+
+                fosiller: [
+                    "Cyprideis seminulum",
+                    "Cyprideis anatolica",
+                    "Cyprideis torosa",
+                    "Cyprideis sohni",
+                    "Cyprideis pannonica",
+                    "Cytherella glypta",
+                    "Miocyprideis sarmatica",
+                    "Cyamocytheridea meniscus",
+                    "Xestoleberis communis",
+                    "Xestoleberis margaritae",
+                    "Chara sp.",
+                    "Balık otoliti",
+                    "Pirenella picta",
+                    "Terebralia bidentata"
+                ],
+
+                grup: "Ostrakodlar, gastropodlar, algler, balıklar ve foraminiferler",
+
+                aciklama:
+                    "Fadıl ve Salbaş yöresindeki Geç Miyosen yaşlı volkano-sedimanter istiflerde zengin bir mikrofosil topluluğu tanımlanmıştır. Fosiller lagün ve sığ denizel ortamların izlerini taşımaktadır.",
+
+                kaynak:
+                    "Şafak, Ü., Akıncı, A.C. & Sonsun, H. (2021). Fadıl ve Salbaş Yöresi (Adana/Türkiye) Tüfit ve Memişli İstifinin Ostrakod Faunası ve Paleoortamsal Özellikleri."
+            },
+
+
+            {
+                yer: "Karaisalı Formasyonu",
+                donem: "Erken Miyosen",
+                yas: "Akitaniyen–Burdigaliyen",
+
+                fosiller: [
+                    "Mercanlar",
+                    "Gastropodlar",
+                    "Lamellibranşlar",
+                    "Ekinidler",
+                    "Kırmızı algler",
+                    "Foraminiferler"
+                ],
+
+                grup: "Resif canlıları ve mikrofosiller",
+
+                aciklama:
+                    "Karaisalı Formasyonu'nun resifal kireçtaşlarında mercan, gastropod, lamellibranş, ekinid, kırmızı alg ve foraminiferlerden oluşan zengin bir fosil topluluğu tanımlanmıştır.",
+
+                kaynak:
+                    "Taraf, F., Eren, M. & Gürbüz, K. (2013). Karaisalı Formasyonu'nun (Adana Baseni-Türkiye) Fasiyes ve Mikrofasiyes Özellikleri."
+            }
+
+        ]
+
+    }
+
+};
 
     const iller = document.querySelectorAll("#svg-turkiye-haritasi path");
 
